@@ -17,7 +17,17 @@ class Todo {
         this.dueDate = dueDate
         this.priority = priority
     }
-
 }
 
+class DisplayController {
+    updateList(list) {
+        const display = document.getElementById("display-items")
+        const newTodo = document.createElement("div")
+        const newTodoTitle = document.createTextNode(list.todos.at(-1).title)
+        newTodo.append(newTodoTitle)
+        display.append(newTodo)
+    }
+}
+
+let displayController = new DisplayController
 let homeList = new List("Home", [])
