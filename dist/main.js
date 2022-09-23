@@ -23,7 +23,13 @@ class DisplayController {
     updateList(list) {
         const display = document.getElementById("display-items")
         const newTodo = document.createElement("div")
-        const newTodoTitle = document.createTextNode(list.todos.at(-1).title)
+        const newTodoTitle = document.createElement("p")
+        const newTodoTitleText = document.createTextNode(list.todos.at(-1).title)
+        const newTodoButton = document.createElement("button")
+        newTodo.className = "todo-item"
+        newTodoButton.className = "submit-button"
+        newTodoTitle.append(newTodoTitleText)
+        newTodo.append(newTodoButton)
         newTodo.append(newTodoTitle)
         display.append(newTodo)
     }
@@ -31,3 +37,6 @@ class DisplayController {
 
 let displayController = new DisplayController
 let homeList = new List("Home", [])
+
+homeList.addToList("workout", "buy milk", "tomorrow", "high")
+displayController.updateList(homeList)
