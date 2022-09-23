@@ -3,6 +3,11 @@ class List {
         this.title = title
         this.todos = todos
     }
+
+    addToList(title, description, dueDate, priority) {
+        let newTodo = new Todo(title, description, dueDate, priority)
+        this.todos.push(newTodo)
+    }
 }
 
 class Todo {
@@ -12,12 +17,7 @@ class Todo {
         this.dueDate = dueDate
         this.priority = priority
     }
-}
 
-function addToList(title, description, dueDate, priority, list) {
-    let newTodo = new Todo(title, description, dueDate, priority)
-    // I first tried list.push however I needed to access the property!
-    list.todos.push(newTodo)
 }
 
 let homeList = new List("Home", [])
