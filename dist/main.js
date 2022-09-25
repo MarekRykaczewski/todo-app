@@ -8,6 +8,7 @@ class List {
         let newTodo = new Todo(title, description, dueDate, priority)
         this.todos.push(newTodo)
     }
+
 }
 
 class Todo {
@@ -25,12 +26,15 @@ class DisplayController {
         const newTodo = document.createElement("div")
         const newTodoTitle = document.createElement("p")
         const newTodoTitleText = document.createTextNode(list.todos.at(-1).title)
-        const newTodoButton = document.createElement("button")
+        const newTodoBtn = document.createElement("button")
+        const newTodoDeleteBtn = document.createElement("button")
         newTodo.className = "todo-item"
-        newTodoButton.className = "submit-button"
+        newTodoBtn.className = "submit-button"
         newTodoTitle.append(newTodoTitleText)
-        newTodo.append(newTodoButton)
+        newTodoDeleteBtn.className = "delete-button"
+        newTodo.append(newTodoBtn)
         newTodo.append(newTodoTitle)
+        newTodo.append(newTodoDeleteBtn)
         display.append(newTodo)
     }
 }
@@ -40,3 +44,16 @@ let homeList = new List("Home", [])
 
 homeList.addToList("workout", "buy milk", "tomorrow", "high")
 displayController.updateList(homeList)
+
+const todoInput = document.querySelector("#new-todo-button")
+const todoInputText = document.querySelector("#new-task-input")
+todoInput.onclick = function() {
+    text = todoInputText.value
+    homeList.addToList(text)
+    displayController.updateList(homeList)
+}
+
+const todoDelete = document.querySelector(".delete-button")
+todoDelete.onclick = function() {
+    
+}
