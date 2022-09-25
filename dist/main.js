@@ -9,6 +9,10 @@ class List {
         this.todos.push(newTodo)
     }
 
+    removeFromList(index) {
+        this.todos.splice(index, 1)
+    }
+
 }
 
 class Todo {
@@ -18,6 +22,7 @@ class Todo {
         this.dueDate = dueDate
         this.priority = priority
     }
+
 }
 
 class DisplayController {
