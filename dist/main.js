@@ -29,15 +29,15 @@ class Todo {
 }
 
 class DisplayController {
-    createTodo(list) {
+    createTodo(list, position) {
         const display = document.getElementById("display-items")
         const newTodo = document.createElement("div")
         const newTodoTitle = document.createElement("p")
-        const newTodoTitleText = document.createTextNode(list.todos.at(-1).title)
+        const newTodoTitleText = document.createTextNode(list.todos.at(position).title)
         const newTodoBtn = document.createElement("button")
         const newTodoDeleteBtn = document.createElement("button")
         newTodo.className = "todo-item"
-        newTodoDeleteBtn.dataset.indexNum = list.todos.at(-1).id
+        newTodoDeleteBtn.dataset.indexNum = list.todos.at(position).id
         newTodoBtn.className = "submit-button"
         newTodoTitle.append(newTodoTitleText)
         newTodoDeleteBtn.className = "delete-button"
@@ -61,12 +61,21 @@ class DisplayController {
         newList.append(newListName)
         lists.append(newList)
     }
+
+    refreshTodos(list) {
+        for(let i = 0; i < list.todos.length; i++) {
+            this.createTodo(list, i)
+        }
+
+    }
 }
 
 let displayController = new DisplayController
 let homeList = new List("Home", [])
 
-// homeList.addToList("workout", "buy milk", "tomorrow", "high")
+// homeList.addToList(0, "workout", "buy milk", "tomorrow", "high")
+// homeList.addToList(1, "test", "buy milk", "tomorrow", "high")
+// homeList.addToList(2, "test2", "buy milk", "tomorrow", "high")
 // displayController.createTodo(homeList)
 
 const todoInput = document.querySelector("#new-todo-button")
@@ -74,5 +83,5 @@ const todoInputText = document.querySelector("#new-task-input")
 todoInput.onclick = function() {
     text = todoInputText.value
     homeList.addToList(text)
-    displayController.createTodo(homeList)
+    displayController.createTodo(homeList, -1)
 }
