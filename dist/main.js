@@ -29,7 +29,7 @@ class Todo {
 }
 
 class DisplayController {
-    updateList(list) {
+    createTodo(list) {
         const display = document.getElementById("display-items")
         const newTodo = document.createElement("div")
         const newTodoTitle = document.createElement("p")
@@ -52,18 +52,27 @@ class DisplayController {
         newTodo.append(newTodoDeleteBtn)
         display.append(newTodo)
     }
+
+    createList(name) {
+        const lists = document.getElementById("sidebar")
+        const newList = document.createElement("div")
+        const newListName = document.createTextNode(name)
+        newList.className = "userlist"
+        newList.append(newListName)
+        lists.append(newList)
+    }
 }
 
 let displayController = new DisplayController
 let homeList = new List("Home", [])
 
 // homeList.addToList("workout", "buy milk", "tomorrow", "high")
-// displayController.updateList(homeList)
+// displayController.createTodo(homeList)
 
 const todoInput = document.querySelector("#new-todo-button")
 const todoInputText = document.querySelector("#new-task-input")
 todoInput.onclick = function() {
     text = todoInputText.value
     homeList.addToList(text)
-    displayController.updateList(homeList)
+    displayController.createTodo(homeList)
 }
