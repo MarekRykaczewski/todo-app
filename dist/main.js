@@ -9,8 +9,11 @@ class ListManager {
     }
 }
 
+let listCounter = 0;
+
 class List {
     constructor(title, todos) {
+        this.id = listCounter++
         this.title = title
         this.todos = todos
     }
