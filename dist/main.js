@@ -30,7 +30,7 @@ let todoCounter = 0;
 
 class Todo {
     constructor(title, description, dueDate, priority) {
-        this.id = tpdoCounter++
+        this.id = todoCounter++
         this.title = title
         this.description = description
         this.dueDate = dueDate
