@@ -68,12 +68,23 @@ class DisplayController {
     }
 
     createList(name) {
+        let self = this
+        const display = document.getElementById("display-items")
         const lists = document.getElementById("sidebar")
         const newList = document.createElement("div")
         const newListName = document.createTextNode(name)
         newList.className = "userlist"
+        newList.dataset.indexNum = listManager.lists.at(-1).id
         newList.append(newListName)
         lists.append(newList)
+        newList.addEventListener("click", function() {
+            let listId = parseInt(newList.dataset.indexNum)
+            currentList = listManager.lists.find(x => x.id === listId)
+            while (display.firstChild) {
+                display.removeChild(display.lastChild)
+            }
+            self.refreshTodos(currentList)
+        })
     }
 
     refreshTodos(list) {
