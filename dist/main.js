@@ -4,7 +4,8 @@ class ListManager {
     }
 
     addList(list) {
-        this.lists.push(list)
+        let newList = new List(list, [])
+        this.lists.push(newList)
     }
 }
 
