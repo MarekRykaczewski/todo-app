@@ -98,7 +98,7 @@ class DisplayController {
 let listManager = new ListManager
 let displayController = new DisplayController
 
-let homeList = new List("Home", [])
+let homeList = "home"
 
 listManager.addList(homeList)
 let currentList = homeList
