@@ -102,3 +102,11 @@ todoInput.onclick = function() {
     currentList.addToList(text)
     displayController.createTodo(currentList, -1)
 }
+
+const listInput = document.querySelector("#new-list-button")
+const listInputText = document.querySelector("#new-list-input")
+listInput.onclick = function() {
+    text = listInputText.value
+    listManager.addList(text)
+    displayController.createList(text)
+}
