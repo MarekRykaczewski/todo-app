@@ -1,3 +1,13 @@
+class ListManager {
+    constructor(lists) {
+        this.lists = []
+    }
+
+    addList(list) {
+        this.lists.push(list)
+    }
+}
+
 class List {
     constructor(title, todos) {
         this.title = title
@@ -70,8 +80,15 @@ class DisplayController {
     }
 }
 
+let listManager = new ListManager
 let displayController = new DisplayController
+
 let homeList = new List("Home", [])
+
+listManager.addList(homeList)
+let currentList = homeList
+
+// let currentList = listManager.lists[0]
 
 // homeList.addToList(0, "workout", "buy milk", "tomorrow", "high")
 // homeList.addToList(1, "test", "buy milk", "tomorrow", "high")
@@ -82,6 +99,6 @@ const todoInput = document.querySelector("#new-todo-button")
 const todoInputText = document.querySelector("#new-task-input")
 todoInput.onclick = function() {
     text = todoInputText.value
-    homeList.addToList(text)
-    displayController.createTodo(homeList, -1)
+    currentList.addToList(text)
+    displayController.createTodo(currentList, -1)
 }
