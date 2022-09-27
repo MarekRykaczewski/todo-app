@@ -26,11 +26,11 @@ class List {
 
 }
 
-let counter = 0;
+let todoCounter = 0;
 
 class Todo {
     constructor(title, description, dueDate, priority) {
-        this.id = counter++
+        this.id = tpdoCounter++
         this.title = title
         this.description = description
         this.dueDate = dueDate
