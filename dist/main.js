@@ -114,9 +114,13 @@ let currentList = listManager.lists[0]
 
 const todoInput = document.querySelector("#new-todo-button")
 const todoInputText = document.querySelector("#new-task-input")
+const todoInputPrio = document.querySelector("#new-task-priority")
+const todoInputDate = document.querySelector("#new-task-date")
 todoInput.onclick = function() {
-    text = todoInputText.value
-    currentList.addToList(text)
+    title = todoInputText.value
+    priority = todoInputPrio.value
+    date = todoInputDate.value
+    currentList.addToList(title, "", date, priority)
     displayController.createTodo(currentList, -1)
 }
 
