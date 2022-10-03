@@ -65,6 +65,20 @@ class DisplayController {
         newTodo.append(newTodoTitle)
         newTodo.append(newTodoDeleteBtn)
         display.append(newTodo)
+
+        newTodo.onclick = function() {
+            this.classList.add("todo-expanded")
+            let todoId = parseInt(newTodoDeleteBtn.dataset.indexNum)
+            const index = list.todos.find(x => x.id === todoId)
+            let prio = document.createElement("span")
+            let prioText = document.createTextNode("Priority:" + currentList.todos[index.id].priority)
+            prio.appendChild(prioText)
+            newTodo.appendChild(prio)
+            let date = document.createElement("span")
+            let dateText = document.createTextNode("Date: " + currentList.todos[index.id].dueDate)
+            date.appendChild(dateText)
+            newTodo.appendChild(date)
+        }
     }
 
     createList(name) {
