@@ -66,18 +66,29 @@ class DisplayController {
         newTodo.append(newTodoDeleteBtn)
         display.append(newTodo)
 
+        let todoId = parseInt(newTodoDeleteBtn.dataset.indexNum)
+        const index = list.todos.find(x => x.id === todoId)
+
+        let detailsContainer = document.createElement("div")
+        detailsContainer.setAttribute("id","details-container");
+
+        let prio = document.createElement("span")
+        let prioText = document.createTextNode("Priority:" + currentList.todos[index.id].priority)
+        prio.appendChild(prioText)
+        detailsContainer.appendChild(prio)
+
+        let date = document.createElement("span")
+        let dateText = document.createTextNode("Date: " + currentList.todos[index.id].dueDate)
+        date.appendChild(dateText)
+        detailsContainer.appendChild(date)
+
+        newTodo.appendChild(detailsContainer)
+        detailsContainer.style.display = "none"
+
         newTodo.onclick = function() {
             this.classList.add("todo-expanded")
-            let todoId = parseInt(newTodoDeleteBtn.dataset.indexNum)
-            const index = list.todos.find(x => x.id === todoId)
-            let prio = document.createElement("span")
-            let prioText = document.createTextNode("Priority:" + currentList.todos[index.id].priority)
-            prio.appendChild(prioText)
-            newTodo.appendChild(prio)
-            let date = document.createElement("span")
-            let dateText = document.createTextNode("Date: " + currentList.todos[index.id].dueDate)
-            date.appendChild(dateText)
-            newTodo.appendChild(date)
+            detailsContainer.style.display = "flex"
+            
         }
     }
 
