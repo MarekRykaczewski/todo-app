@@ -79,7 +79,6 @@ body {
     grid-template-rows: auto;
     align-items: center;
     justify-content: flex-start;
-    justify-items: center;
     border: none;
     -webkit-appearance: none;
     outline: none;
