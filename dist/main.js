@@ -86,8 +86,14 @@ class DisplayController {
         detailsContainer.style.display = "none"
 
         newTodo.onclick = function() {
-            this.classList.add("todo-expanded")
-            detailsContainer.style.display = "flex"
+            if (newTodo.classList.contains("todo-expanded")) {
+                this.classList.remove("todo-expanded")
+                detailsContainer.style.display = "none"
+            } else {
+                this.classList.add("todo-expanded")
+                detailsContainer.style.display = "flex"
+            }
+
             
         }
     }
@@ -156,3 +162,7 @@ listInput.onclick = function() {
     listManager.addList(text)
     displayController.createList(text)
 }
+
+
+
+
