@@ -82,7 +82,7 @@ class DisplayController {
         detailsContainer.setAttribute("id","details-container");
 
         let prio = document.createElement("span")
-        let prioText = document.createTextNode("Priority:" + currentList.todos[index.id].priority)
+        let prioText = document.createTextNode("Priority: " + currentList.todos[index.id].priority)
         prio.appendChild(prioText)
         detailsContainer.appendChild(prio)
 
@@ -141,7 +141,7 @@ let listManager = new ListManager
 let displayController = new DisplayController
 
 
-let homeList = "home"
+let homeList = "Home"
 listManager.addList(homeList)
 displayController.createList(homeList)
 
