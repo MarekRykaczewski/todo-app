@@ -33,7 +33,7 @@ let todoCounter = 0;
 
 class Todo {
     constructor(title, description, dueDate, priority) {
-        this.id = todoCounter++
+        this.id = currentList.todos.length
         this.title = title
         this.description = description
         this.dueDate = dueDate
@@ -67,7 +67,16 @@ class DisplayController {
         display.append(newTodo)
 
         let todoId = parseInt(newTodoDeleteBtn.dataset.indexNum)
-        const index = list.todos.find(x => x.id === todoId)
+        
+
+        let result = currentList.todos.filter(obj => {
+            return obj.id === todoId
+        })
+        console.log(result)
+        console.log(Object.values(result)[0])
+        let index = Object.values(result)[0]
+        console.log(index.id)
+        
 
         let detailsContainer = document.createElement("div")
         detailsContainer.setAttribute("id","details-container");
