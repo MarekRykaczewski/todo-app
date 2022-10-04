@@ -118,6 +118,8 @@ class DisplayController {
         newList.append(newListName)
         lists.append(newList)
         newList.addEventListener("click", function() {
+            const header = document.querySelector("#display-header")
+            header.innerHTML = name
             let listId = parseInt(newList.dataset.indexNum)
             currentList = listManager.lists.find(x => x.id === listId)
             while (display.firstChild) {
