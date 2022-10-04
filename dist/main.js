@@ -72,10 +72,10 @@ class DisplayController {
         let result = currentList.todos.filter(obj => {
             return obj.id === todoId
         })
-        console.log(result)
+
         console.log(Object.values(result)[0])
         let index = Object.values(result)[0]
-        console.log(index.id)
+
         
 
         let detailsContainer = document.createElement("div")
