@@ -76,8 +76,6 @@ class DisplayController {
         console.log(Object.values(result)[0])
         let index = Object.values(result)[0]
 
-        
-
         let detailsContainer = document.createElement("div")
         detailsContainer.setAttribute("id","details-container");
 
@@ -165,3 +163,5 @@ listInput.onclick = function() {
     listManager.addList(text)
     displayController.createList(text)
 }
+
+currentList.refreshTodos()
