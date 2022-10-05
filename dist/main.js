@@ -164,9 +164,9 @@ function saveStorage() {
 let listManager = new ListManager
 let displayController = new DisplayController
 
-let homeList = "Home"
-listManager.addList(homeList)
-displayController.createList(homeList)
+// let homeList = "Home"
+// listManager.addList(homeList)
+// displayController.createList(homeList)
 
 let currentList = listManager.lists[0]
 
@@ -190,4 +190,4 @@ listInput.onclick = function() {
     displayController.createList(text)
 }
 
-displayController.refreshTodos(currentList)
+// displayController.refreshTodos(currentList)
