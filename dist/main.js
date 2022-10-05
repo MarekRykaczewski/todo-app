@@ -142,7 +142,7 @@ if (window.localStorage.getItem("lists")) {
 }
 
 function loadStorage() {
-    for (let i = 0; i < library.length; i++) { // for each list in library
+    for (let i = 1; i < library.length; i++) { // for each list in library
         listManager.addList(library[i].title) // add list with name of title
         console.log(listManager.lists[listManager.lists.length - 1])
         let now = listManager.lists[listManager.lists.length - 1] // get the last element in listManager
