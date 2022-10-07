@@ -33,6 +33,7 @@ class List {
     addToList(title, description, dueDate, priority) {
         let newTodo = new Todo(title, description, dueDate, priority)
         this.todos.push(newTodo)
+        saveStorage(this.title)
     }
 
     removeFromList(index) {
