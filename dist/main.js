@@ -92,12 +92,12 @@ class DisplayController {
         detailsContainer.setAttribute("id","details-container");
 
         let prio = document.createElement("span")
-        let prioText = document.createTextNode("Priority: " + currentList.todos[index.id].priority)
+        let prioText = document.createTextNode("Priority: " +  list.todos.at(position).priority)
         prio.appendChild(prioText)
         detailsContainer.appendChild(prio)
 
         let date = document.createElement("span")
-        let dateText = document.createTextNode("Date: " + currentList.todos[index.id].dueDate)
+        let dateText = document.createTextNode("Date: " +  list.todos.at(position).dueDate)
         date.appendChild(dateText)
         detailsContainer.appendChild(date)
 
