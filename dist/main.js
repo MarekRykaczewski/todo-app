@@ -73,6 +73,7 @@ class DisplayController {
             const index = list.todos.find(x => x.id === todoId)
             list.removeFromList(index)
             newTodoDeleteBtn.parentNode.parentNode.removeChild(newTodoDeleteBtn.parentNode)
+            saveStorage(list.title)
         }
         newTodo.append(newTodoBtn)
         newTodo.append(newTodoTitle)
