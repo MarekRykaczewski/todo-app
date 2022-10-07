@@ -174,7 +174,6 @@ let currentList = listManager.lists[0]
 
 function saveStorage(listTitle) {
     let list = listManager.lists.find(x => x.title === listTitle)
-    console.log(list)
     localStorage.setItem(listTitle, JSON.stringify(list))
 }
 
