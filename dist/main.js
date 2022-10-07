@@ -183,6 +183,14 @@ function saveStorage(listTitle) {
     localStorage.setItem(listTitle, JSON.stringify(list))
 }
 
+function loadStorage(listTitle) {
+    let loaded = JSON.parse(window.localStorage.getItem(listTitle))
+    if (arrayOfKeys.includes(listTitle)) {
+        listManager.loadList(listTitle, loaded.todos)
+        displayController.createList(listTitle)
+        }
+    }
+
 todoInput.onclick = function() {
     title = todoInputText.value
     priority = todoInputPrio.value
