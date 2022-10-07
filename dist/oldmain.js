@@ -14,6 +14,11 @@ class ListManager {
         let newList = new List(list, [])
         this.lists.push(newList)
     }
+
+    loadList(list, todos) {
+        let loadedList = new List(list, todos)
+        this.lists.push(loadedList)
+    }
 }
 
 let listCounter = 0;
@@ -28,6 +33,7 @@ class List {
     addToList(title, description, dueDate, priority) {
         let newTodo = new Todo(title, description, dueDate, priority)
         this.todos.push(newTodo)
+        saveStorage(this.title)
     }
 
     removeFromList(index) {
@@ -67,6 +73,7 @@ class DisplayController {
             const index = list.todos.find(x => x.id === todoId)
             list.removeFromList(index)
             newTodoDeleteBtn.parentNode.parentNode.removeChild(newTodoDeleteBtn.parentNode)
+            saveStorage(list.title)
         }
         newTodo.append(newTodoBtn)
         newTodo.append(newTodoTitle)
@@ -80,19 +87,18 @@ class DisplayController {
             return obj.id === todoId
         })
 
-        console.log(Object.values(result)[0])
         let index = Object.values(result)[0]
 
         let detailsContainer = document.createElement("div")
         detailsContainer.setAttribute("id","details-container");
 
         let prio = document.createElement("span")
-        let prioText = document.createTextNode("Priority: " + currentList.todos[index.id].priority)
+        let prioText = document.createTextNode("Priority: " + list.todos.at(position).priority)
         prio.appendChild(prioText)
         detailsContainer.appendChild(prio)
 
         let date = document.createElement("span")
-        let dateText = document.createTextNode("Date: " + currentList.todos[index.id].dueDate)
+        let dateText = document.createTextNode("Date: " + list.todos.at(position).dueDate)
         date.appendChild(dateText)
         detailsContainer.appendChild(date)
 
@@ -122,6 +128,7 @@ class DisplayController {
         newList.append(newListName)
         lists.append(newList)
         newList.addEventListener("click", function() {
+            // loadStorage(newList)
             const header = document.querySelector("#display-header")
             header.innerHTML = name
             let listId = parseInt(newList.dataset.indexNum)
@@ -130,6 +137,7 @@ class DisplayController {
                 display.removeChild(display.lastChild)
             }
             self.refreshTodos(currentList)
+
         })
     }
 
@@ -141,42 +149,45 @@ class DisplayController {
     }
 }
 
-// here
-console.log(JSON.parse(window.localStorage.getItem("lists")))
-let library = JSON.parse(window.localStorage.getItem("lists"))
-if (window.localStorage.getItem("lists")) {
-    console.log("true")
-}
+let arrayOfKeys = Object.keys(localStorage);
 
-function loadStorage() {
-    for (let i = 1; i < library.length; i++) { // for each list in library
-        listManager.addList(library[i].title) // add list with name of title
-        console.log(listManager.lists[listManager.lists.length - 1])
-        let now = listManager.lists[listManager.lists.length - 1] // get the last element in listManager
-        for (let j = 0; j < library[i].todos.length; j++) { // for each todo in list
-            now.addToList(library[i].todos[j].title, library[i].todos[j].description, library[i].todos[j].dueDate, library[i].todos[j].priority) // add todo to list
-        }
-        
-        displayController.createList(library[i].title)
-        // let oldTodo = new Todo(library[i].title, library[i].description, library[i].dueDate, library[i].priority)
-        // displayController.refreshTodos(currentList)
+function loadStorage(listTitle) {
+
+console.log(JSON.parse(window.localStorage.getItem(listTitle)))
+let loaded = JSON.parse(window.localStorage.getItem(listTitle))
+console.log(loaded.todos)
+
+if (arrayOfKeys.includes(listTitle)) {
+    console.log("yep")
+    listManager.loadList(listTitle, loaded.todos)
+    displayController.createList(listTitle)
     }
 }
 
-function saveStorage() {
-    localStorage.setItem("lists", JSON.stringify(listManager.lists))
+function loadAll() {
+    for (let i = 0; i < arrayOfKeys.length; i++) { // loop through all localStorage keys
+        loadStorage(arrayOfKeys[i])
+    }
 }
 
+function saveStorage(listTitle) {
+    let list = listManager.lists.find(x => x.title === listTitle)
+    console.log(list)
+    localStorage.setItem(listTitle, JSON.stringify(list))
+}
+
+function testStorage() {
+    console.log(arrayOfKeys)
+
+}
 
 let listManager = new ListManager
 let displayController = new DisplayController
 
 let homeList = "Home"
 listManager.addList(homeList)
-// displayController.createList(homeList)
 
 let currentList = listManager.lists[0]
-
 
 todoInput.onclick = function() {
     title = todoInputText.value
@@ -192,4 +203,4 @@ listInput.onclick = function() {
     displayController.createList(text)
 }
 
-// displayController.refreshTodos(currentList)
+loadAll()

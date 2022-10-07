@@ -1,10 +1,3 @@
-const todoInput = document.querySelector("#new-todo-button")
-const todoInputText = document.querySelector("#new-task-input")
-const todoInputPrio = document.querySelector("#new-task-priority")
-const todoInputDate = document.querySelector("#new-task-date")
-const listInput = document.querySelector("#new-list-button")
-const listInputText = document.querySelector("#new-list-input")
-
 class ListManager {
     constructor(lists) {
         this.lists = []
@@ -177,7 +170,10 @@ listManager.addList(homeList)
 
 let currentList = listManager.lists[0]
 
-
+const todoInput = document.querySelector("#new-todo-button")
+const todoInputText = document.querySelector("#new-task-input")
+const todoInputPrio = document.querySelector("#new-task-priority")
+const todoInputDate = document.querySelector("#new-task-date")
 todoInput.onclick = function() {
     title = todoInputText.value
     priority = todoInputPrio.value
@@ -186,6 +182,8 @@ todoInput.onclick = function() {
     displayController.createTodo(currentList, -1)
 }
 
+const listInput = document.querySelector("#new-list-button")
+const listInputText = document.querySelector("#new-list-input")
 listInput.onclick = function() {
     text = listInputText.value
     listManager.addList(text)
