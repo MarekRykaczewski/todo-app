@@ -181,3 +181,5 @@ listInput.onclick = function() {
     listManager.addList(text)
     displayController.createList(text)
 }
+
+loadAll()
