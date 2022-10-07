@@ -141,7 +141,6 @@ class DisplayController {
     }
 }
 
-// here
 console.log(JSON.parse(window.localStorage.getItem("lists")))
 let library = JSON.parse(window.localStorage.getItem("lists"))
 if (window.localStorage.getItem("lists")) {
@@ -158,8 +157,6 @@ function loadStorage() {
         }
         
         displayController.createList(library[i].title)
-        // let oldTodo = new Todo(library[i].title, library[i].description, library[i].dueDate, library[i].priority)
-        // displayController.refreshTodos(currentList)
     }
 }
 
@@ -173,8 +170,6 @@ let displayController = new DisplayController
 
 let homeList = "Home"
 listManager.addList(homeList)
-// displayController.createList(homeList)
-
 let currentList = listManager.lists[0]
 
 
@@ -191,5 +186,3 @@ listInput.onclick = function() {
     listManager.addList(text)
     displayController.createList(text)
 }
-
-// displayController.refreshTodos(currentList)
