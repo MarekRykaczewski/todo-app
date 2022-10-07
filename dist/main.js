@@ -14,6 +14,11 @@ class ListManager {
         let newList = new List(list, [])
         this.lists.push(newList)
     }
+
+    loadList(list, todos) {
+        let loadedList = new List(list, todos)
+        this.lists.push(loadedList)
+    }
 }
 
 let listCounter = 0;
