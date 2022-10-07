@@ -152,19 +152,6 @@ if (window.localStorage.getItem("lists")) {
     console.log("true")
 }
 
-function loadStorage() {
-    for (let i = 1; i < library.length; i++) { // for each list in library
-        listManager.addList(library[i].title) // add list with name of title
-        console.log(listManager.lists[listManager.lists.length - 1])
-        let now = listManager.lists[listManager.lists.length - 1] // get the last element in listManager
-        for (let j = 0; j < library[i].todos.length; j++) { // for each todo in list
-            now.addToList(library[i].todos[j].title, library[i].todos[j].description, library[i].todos[j].dueDate, library[i].todos[j].priority) // add todo to list
-        }
-        
-        displayController.createList(library[i].title)
-    }
-}
-
 let listManager = new ListManager
 let displayController = new DisplayController
 
