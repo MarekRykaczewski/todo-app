@@ -146,11 +146,7 @@ class DisplayController {
     }
 }
 
-console.log(JSON.parse(window.localStorage.getItem("lists")))
 let library = JSON.parse(window.localStorage.getItem("lists"))
-if (window.localStorage.getItem("lists")) {
-    console.log("true")
-}
 
 let listManager = new ListManager
 let displayController = new DisplayController
