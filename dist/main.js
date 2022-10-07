@@ -187,6 +187,12 @@ function loadStorage(listTitle) {
         }
     }
 
+function loadAll() {
+    for (let i = 0; i < arrayOfKeys.length; i++) { // loop through all localStorage keys
+        loadStorage(arrayOfKeys[i])
+    }
+}
+
 todoInput.onclick = function() {
     title = todoInputText.value
     priority = todoInputPrio.value
