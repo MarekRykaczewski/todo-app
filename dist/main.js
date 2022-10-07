@@ -165,11 +165,6 @@ function loadStorage() {
     }
 }
 
-function saveStorage() {
-    localStorage.setItem("lists", JSON.stringify(listManager.lists))
-}
-
-
 let listManager = new ListManager
 let displayController = new DisplayController
 
