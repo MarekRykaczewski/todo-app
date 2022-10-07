@@ -80,16 +80,6 @@ class DisplayController {
         newTodo.append(newTodoDeleteBtn)
         display.append(newTodo)
 
-        let todoId = parseInt(newTodoDeleteBtn.dataset.indexNum)
-        
-
-        let result = currentList.todos.filter(obj => {
-            return obj.id === todoId
-        })
-
-        console.log(Object.values(result)[0])
-        let index = Object.values(result)[0]
-
         let detailsContainer = document.createElement("div")
         detailsContainer.setAttribute("id","details-container");
 
