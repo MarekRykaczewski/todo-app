@@ -183,6 +183,8 @@ function saveStorage(listTitle) {
     localStorage.setItem(listTitle, JSON.stringify(list))
 }
 
+let arrayOfKeys = Object.keys(localStorage);
+
 function loadStorage(listTitle) {
     let loaded = JSON.parse(window.localStorage.getItem(listTitle))
     if (arrayOfKeys.includes(listTitle)) {
