@@ -85,17 +85,26 @@ class DisplayController {
         display.append(newTodo)
 
         let detailsContainer = document.createElement("div")
+        
+        const newTodoPrioContainer = document.createElement("div")
+        const newTodoDateContainer = document.createElement("div")
+        newTodoPrioContainer.className = "detail-container"
+        newTodoDateContainer.className = "detail-container"
+
         detailsContainer.setAttribute("id","details-container");
 
         let prio = document.createElement("span")
         let prioText = document.createTextNode("Priority: " +  list.todos.at(position).priority)
         prio.appendChild(prioText)
-        detailsContainer.appendChild(prio)
+        newTodoPrioContainer.appendChild(prio)
 
         let date = document.createElement("span")
         let dateText = document.createTextNode("Date: " +  list.todos.at(position).dueDate)
         date.appendChild(dateText)
-        detailsContainer.appendChild(date)
+        newTodoDateContainer.appendChild(date)
+
+        detailsContainer.appendChild(newTodoPrioContainer)
+        detailsContainer.appendChild(newTodoDateContainer)
 
         newTodo.appendChild(detailsContainer)
         detailsContainer.style.display = "none"

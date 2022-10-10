@@ -191,3 +191,11 @@ body {
     -webkit-appearance: none;
     outline: none;
 }
+
+.detail-container {
+    background-color: var(--main-bg-color-lighter);
+    border-radius: 10px;
+    padding: 5px;
+    width: auto;
+    height: auto;
+}
