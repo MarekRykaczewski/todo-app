@@ -119,11 +119,13 @@ class DisplayController {
         const newList = document.createElement("div")
         const newListName = document.createTextNode(name)
         const newListDeleteBtn = document.createElement("button")
-        newList.className = "userlist"
+        const newListContainer = document.createElement("div")
         newList.dataset.indexNum = listManager.lists.at(-1).id
         newList.append(newListName)
-        newList.append(newListDeleteBtn)
-        lists.append(newList)
+        newListContainer.append(newList)
+        newListContainer.append(newListDeleteBtn)
+        lists.append(newListContainer)
+        newListContainer.className = "userlist"
         newList.addEventListener("click", function() {
             const header = document.querySelector("#display-header")
             header.innerHTML = name
@@ -133,6 +135,14 @@ class DisplayController {
                 display.removeChild(display.lastChild)
             }
             self.refreshTodos(currentList)
+        })
+        newListDeleteBtn.addEventListener("click", function() {
+            let listId = parseInt(newList.dataset.indexNum)
+            listManager.removeList(listId)
+            newListDeleteBtn.parentNode.parentNode.removeChild(newListDeleteBtn.parentNode)
+            console.log(listId)
+            localStorage.removeItem(name)
+           
         })
     }
 
