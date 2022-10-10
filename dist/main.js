@@ -22,7 +22,6 @@ class ListManager {
 
     removeList(index) {
        this.lists.splice(index)
-       saveStorage()
     }
 }
 
