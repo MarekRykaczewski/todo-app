@@ -67,6 +67,7 @@ class DisplayController {
         const newTodoTitleText = document.createTextNode(list.todos.at(position).title)
         const newTodoBtn = document.createElement("button")
         const newTodoDeleteBtn = document.createElement("button")
+        const newTodoExpandBtn = document.createElement("button")
         newTodo.className = "todo-item"
         newTodoDeleteBtn.dataset.indexNum = list.todos.at(position).id
         newTodoBtn.className = "submit-button"
@@ -81,6 +82,7 @@ class DisplayController {
         }
         newTodo.append(newTodoBtn)
         newTodo.append(newTodoTitle)
+        newTodo.append(newTodoExpandBtn)
         newTodo.append(newTodoDeleteBtn)
         display.append(newTodo)
 
@@ -109,12 +111,12 @@ class DisplayController {
         newTodo.appendChild(detailsContainer)
         detailsContainer.style.display = "none"
 
-        newTodo.onclick = function() {
+        newTodoExpandBtn.onclick = function() {
             if (newTodo.classList.contains("todo-expanded")) {
-                this.classList.remove("todo-expanded")
+                newTodo.classList.remove("todo-expanded")
                 detailsContainer.style.display = "none"
             } else {
-                this.classList.add("todo-expanded")
+                newTodo.classList.add("todo-expanded")
                 detailsContainer.style.display = "flex"
             }   
         }
