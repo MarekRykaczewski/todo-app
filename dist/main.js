@@ -19,6 +19,11 @@ class ListManager {
         let loadedList = new List(list, todos)
         this.lists.push(loadedList)
     }
+
+    removeList(index) {
+       this.lists.splice(index)
+       saveStorage()
+    }
 }
 
 let listCounter = 0;
