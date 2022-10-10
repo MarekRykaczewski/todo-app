@@ -118,9 +118,11 @@ class DisplayController {
         const lists = document.getElementById("sidebar")
         const newList = document.createElement("div")
         const newListName = document.createTextNode(name)
+        const newListDeleteBtn = document.createElement("button")
         newList.className = "userlist"
         newList.dataset.indexNum = listManager.lists.at(-1).id
         newList.append(newListName)
+        newList.append(newListDeleteBtn)
         lists.append(newList)
         newList.addEventListener("click", function() {
             const header = document.querySelector("#display-header")
