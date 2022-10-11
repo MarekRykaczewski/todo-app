@@ -264,6 +264,7 @@ body {
     background-color: var(--main-bg-color-lighter);
     transition: 0.3s;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 12px;
 }
 
 .todo-expand-button {
