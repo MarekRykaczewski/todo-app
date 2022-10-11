@@ -90,7 +90,7 @@ body {
 
 .todo-item p {
     margin: 0;
-    padding: 10px;
+    /* padding: 10px; */
     align-self: center;
 }
 
@@ -103,6 +103,7 @@ body {
 #details-container {
     display: flex;
     /* grid-column: span 3; */
+    padding: 10px;
     gap: 20px;
     align-items: center;
 }
