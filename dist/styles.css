@@ -206,3 +206,20 @@ body {
     -webkit-appearance: none;
     outline: none;
 }
+
+.list-delete-button {
+    background: url(trash-icon.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 18px;
+    align-self: center;
+    justify-self: center;
+    border: none;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+.list-item {
+    justify-self: center;
+    align-self: center;
+}

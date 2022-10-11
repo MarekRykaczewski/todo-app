@@ -128,8 +128,10 @@ class DisplayController {
         const display = document.getElementById("display-items")
         const lists = document.getElementById("sidebar")
         const newList = document.createElement("div")
+        newList.className = "list-item"
         const newListName = document.createTextNode(name)
         const newListDeleteBtn = document.createElement("button")
+        newListDeleteBtn.className = "list-delete-button"
         const newListContainer = document.createElement("div")
         newList.dataset.indexNum = listManager.lists.at(-1).id
         newList.append(newListName)
