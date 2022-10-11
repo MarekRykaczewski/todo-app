@@ -73,7 +73,7 @@ body {
     height: 50px;
     border-radius: 10px;
     font-size: 1.5em;
-    justify-items: center;
+    justify-items: flex-start;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: 0.6s;
 }
@@ -102,6 +102,7 @@ body {
 
 #details-container {
     display: flex;
+    justify-content: space-around;
     /* grid-column: span 3; */
     padding: 10px;
     gap: 20px;
