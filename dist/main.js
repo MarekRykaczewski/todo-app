@@ -122,10 +122,10 @@ class DisplayController {
         newTodoExpandBtn.onclick = function() {
             if (newTodo.classList.contains("todo-expanded")) {
                 newTodo.classList.remove("todo-expanded")
-                detailsContainer.style.display = "none"
+                // detailsContainer.style.display = "none"
             } else {
                 newTodo.classList.add("todo-expanded")
-                detailsContainer.style.display = "flex"
+                // detailsContainer.style.display = "flex"
             }   
         }
         
