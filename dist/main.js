@@ -68,7 +68,9 @@ class DisplayController {
         const newTodoBtn = document.createElement("button")
         const newTodoDeleteBtn = document.createElement("button")
         const newTodoExpandBtn = document.createElement("button")
+        const newTodoEditBtn = document.createElement("button")
         newTodoExpandBtn.className = "todo-expand-button"
+        newTodoEditBtn.className = "todo-edit-button"
         newTodo.className = "todo-item"
         newTodoDeleteBtn.dataset.indexNum = list.todos.at(position).id
         newTodoBtn.className = "todo-submit-button"
@@ -81,7 +83,11 @@ class DisplayController {
             newTodoDeleteBtn.parentNode.parentNode.removeChild(newTodoDeleteBtn.parentNode)
             saveStorage(list.title)
         }
+        newTodoEditBtn.onclick = function() {
+            console.log("test")
+        }
         newTodo.append(newTodoBtn)
+        newTodo.append(newTodoEditBtn)
         newTodo.append(newTodoTitle)
         newTodo.append(newTodoExpandBtn)
         newTodo.append(newTodoDeleteBtn)
