@@ -150,6 +150,7 @@ body {
 
 #input-details span {   
     line-height: 50px;
+    font-size: 20px;
 }
 
 #input-details input {   
@@ -167,7 +168,7 @@ body {
 
 #new-task-date {
     height: 100%;
-    width: 45%;
+    /* width: 45%; */
     align-self: center;
 }
 
