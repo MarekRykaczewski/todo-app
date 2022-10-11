@@ -62,6 +62,7 @@ body {
 .todo-item {
     display: grid;
     grid-template-columns: 50px 1fr 50px 50px;
+    grid-template-rows: auto auto;
     background-color: var(--main-bg-color);
     width: 95%;
     height: 50px;
@@ -78,18 +79,18 @@ body {
 
 .todo-item p {
     margin: 0;
+    padding: 10px;
     align-self: center;
 }
 
 .todo-expanded {
     height: 100px;
     transition: 0.3s;
+    /* grid-template-rows: auto auto; */
 }
 
 #details-container {
-    grid-column: span 3;
-    display: flex;
-    flex-direction: row;
+    /* grid-column: span 3; */
     gap: 20px;
     align-items: center;
 }
@@ -180,7 +181,21 @@ body {
     outline: none;
 }
 
+.todo-submit-button {
+    grid-row: span 2;
+    background: url(circle-icon.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 18px;
+    align-self: center;
+    justify-self: center;
+    border: none;
+    -webkit-appearance: none;
+    outline: none;
+}
+
 .delete-button {
+    grid-row: span 2;
     background: url(trash-icon.png);
     background-size: 100%;
     background-repeat: no-repeat;

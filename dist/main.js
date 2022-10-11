@@ -70,7 +70,7 @@ class DisplayController {
         const newTodoExpandBtn = document.createElement("button")
         newTodo.className = "todo-item"
         newTodoDeleteBtn.dataset.indexNum = list.todos.at(position).id
-        newTodoBtn.className = "submit-button"
+        newTodoBtn.className = "todo-submit-button"
         newTodoTitle.append(newTodoTitleText)
         newTodoDeleteBtn.className = "delete-button"
         newTodoDeleteBtn.onclick = function() {
