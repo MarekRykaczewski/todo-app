@@ -21,6 +21,8 @@ body {
 
 #top-bar {
     color: var(--white-text-color);
+    font-size: 30px;
+    font-weight: bold;
 }
 
 #sidebar {
@@ -43,7 +45,7 @@ body {
     grid-template-rows: 70px auto 70px;
     align-items: center;
     justify-items: center;
-    padding: 15px;
+    /* padding: 15px; */
     margin: 15px;
     margin-left: 0;
     background-color: rgb(97, 97, 206);
@@ -105,7 +107,7 @@ body {
     border: none;
     -webkit-appearance: none;
     outline: none;
-    width: 100%;
+    /* width: 100%; */
     height: 50px;
     background-color: var(--main-bg-color);
     border-radius: 10px;
