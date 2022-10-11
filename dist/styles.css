@@ -103,7 +103,7 @@ body {
 
 #new-task-bar {
     display: grid;
-    grid-template-columns: 50px 1fr 300px ;
+    grid-template-columns: 50px 1fr  400px ;
     grid-template-rows: 1fr;
     align-items: center;
     justify-content: flex-start;
@@ -119,7 +119,7 @@ body {
     margin: 15px;
     text-align: center;
     font-weight: bold;
-    width: fit-content;
+    width: 80%;
 }
 
 #new-task-input {
@@ -129,6 +129,7 @@ body {
     background-color: var(--main-bg-color);
     color: var(--white-text-color);
     font-size: 1.5em;
+    width: 100%;
 }
 
 #input-details {
@@ -136,10 +137,18 @@ body {
     flex-direction: row;
     gap: 10px;
     justify-content: center;
+    grid-column: 3 / 3;
 }
 
 #input-details span {   
     line-height: 50px;
+}
+
+#input-details input {   
+    background-color: var(--white-text-color);
+    border: 0;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 #new-task-priority {
@@ -150,7 +159,7 @@ body {
 
 #new-task-date {
     height: 100%;
-    width: 35%;
+    width: 45%;
     align-self: center;
 }
 
