@@ -78,6 +78,11 @@ body {
     transition: 0.6s;
 }
 
+.detail-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .todo-item:hover {
     transition: 0.3s;
     background-color: var(--main-bg-color-lighter);
@@ -96,6 +101,7 @@ body {
 }
 
 #details-container {
+    display: flex;
     /* grid-column: span 3; */
     gap: 20px;
     align-items: center;

@@ -88,10 +88,6 @@ class DisplayController {
         }
         newTodo.append(newTodoBtn)
         newTodo.append(newTodoEditBtn)
-        newTodo.append(newTodoTitle)
-        newTodo.append(newTodoExpandBtn)
-        newTodo.append(newTodoDeleteBtn)
-        display.append(newTodo)
 
         let detailsContainer = document.createElement("div")
         
@@ -112,11 +108,16 @@ class DisplayController {
         date.appendChild(dateText)
         newTodoDateContainer.appendChild(date)
 
+        detailsContainer.append(newTodoTitle)
         detailsContainer.appendChild(newTodoPrioContainer)
         detailsContainer.appendChild(newTodoDateContainer)
 
         newTodo.appendChild(detailsContainer)
-        detailsContainer.style.display = "none"
+        // detailsContainer.style.display = "none" 
+        
+        newTodo.append(newTodoExpandBtn)
+        newTodo.append(newTodoDeleteBtn)
+        display.append(newTodo)
 
         newTodoExpandBtn.onclick = function() {
             if (newTodo.classList.contains("todo-expanded")) {
