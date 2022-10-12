@@ -76,41 +76,54 @@ class DisplayController {
         newTodoBtn.className = "todo-submit-button"
         newTodoTitle.append(newTodoTitleText)
         newTodoDeleteBtn.className = "delete-button"
+        let todoId = parseInt(newTodoDeleteBtn.dataset.indexNum)
+        const index = list.todos.find(x => x.id === todoId)
         newTodoDeleteBtn.onclick = function() {
-            let todoId = parseInt(newTodoDeleteBtn.dataset.indexNum)
-            const index = list.todos.find(x => x.id === todoId)
             list.removeFromList(index)
             newTodoDeleteBtn.parentNode.parentNode.removeChild(newTodoDeleteBtn.parentNode)
             saveStorage(list.title)
         }
         newTodoEditBtn.onclick = function() {
-            console.log("test")
+            const newTodoTitleEdit = document.createElement("input")
+            newTodoTitleEdit.value = newTodoTitle.innerHTML
+            newTodoTitle.parentNode.replaceChild(newTodoTitleEdit, newTodoTitle)
+
+            console.log(prioText)
+
+            const newTodoPrioEdit = document.createElement("input")
+            newTodoPrioEdit.value = prio.innerHTML
+            prio.parentNode.replaceChild(newTodoPrioEdit, prio)
+
+            const newTodoDateEdit = document.createElement("input")
+            newTodoDateEdit.value = date.innerHTML
+            date.parentNode.replaceChild(newTodoDateEdit, date)
+            // saveStorage(list.title)
         }
         newTodo.append(newTodoBtn)
         newTodo.append(newTodoEditBtn)
 
         let detailsContainer = document.createElement("div")
         
-        const newTodoPrioContainer = document.createElement("div")
-        const newTodoDateContainer = document.createElement("div")
-        newTodoPrioContainer.className = "detail-container"
-        newTodoDateContainer.className = "detail-container"
+        // const newTodoPrioContainer = document.createElement("div")
+        // const newTodoDateContainer = document.createElement("div")
+        // newTodoPrioContainer.className = "detail-container"
+        // newTodoDateContainer.className = "detail-container"
 
         detailsContainer.setAttribute("id","details-container");
 
-        let prio = document.createElement("span")
+        let prio = document.createElement("p")
         let prioText = document.createTextNode("Priority: " +  list.todos.at(position).priority)
         prio.appendChild(prioText)
-        newTodoPrioContainer.appendChild(prio)
+        // newTodoPrioContainer.appendChild(prio)
 
-        let date = document.createElement("span")
+        let date = document.createElement("p")
         let dateText = document.createTextNode("Date: " +  list.todos.at(position).dueDate)
         date.appendChild(dateText)
-        newTodoDateContainer.appendChild(date)
+        // newTodoDateContainer.appendChild(date)
 
-        detailsContainer.append(newTodoTitle)
-        detailsContainer.appendChild(newTodoPrioContainer)
-        detailsContainer.appendChild(newTodoDateContainer)
+        detailsContainer.appendChild(newTodoTitle)
+        detailsContainer.appendChild(prio)
+        detailsContainer.appendChild(date)
 
         newTodo.appendChild(detailsContainer)
         // detailsContainer.style.display = "none" 

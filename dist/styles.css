@@ -67,7 +67,7 @@ body {
 .todo-item {
     display: grid;
     grid-template-columns: 50px 50px 1fr 50px 50px;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto 0;
     background-color: var(--main-bg-color);
     width: 95%;
     height: 50px;
