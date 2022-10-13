@@ -85,21 +85,18 @@ class DisplayController {
         }
         const newTodoTitleEdit = document.createElement("input")
         const newTodoPrioEdit = document.createElement("input")
+        newTodoPrioEdit.setAttribute("type", "number")
         const newTodoDateEdit = document.createElement("input")
+        newTodoDateEdit.setAttribute("type", "date")
         newTodoEditBtn.onclick = function() {
             
-            newTodoTitleEdit.className = "temp-submit"
             newTodoTitleEdit.value = newTodoTitle.innerHTML
             newTodoTitle.parentNode.replaceChild(newTodoTitleEdit, newTodoTitle)
-
             
-            newTodoPrioEdit.className = "temp-submit"
-            newTodoPrioEdit.value = prio.innerHTML
-            prio.parentNode.replaceChild(newTodoPrioEdit, prio)
-
+            // newTodoPrioEdit.value = prio.innerHTML
+            prio.parentNode.replaceChild(newTodoPrioEdit, prio) 
             
-            newTodoDateEdit.className = "temp-submit"
-            newTodoDateEdit.value = date.innerHTML
+            // newTodoDateEdit.value = date.innerHTML
             date.parentNode.replaceChild(newTodoDateEdit, date)
             // saveStorage(list.title)
         }
