@@ -83,24 +83,38 @@ class DisplayController {
             newTodoDeleteBtn.parentNode.parentNode.removeChild(newTodoDeleteBtn.parentNode)
             saveStorage(list.title)
         }
+        const newTodoTitleEdit = document.createElement("input")
+        const newTodoPrioEdit = document.createElement("input")
+        const newTodoDateEdit = document.createElement("input")
         newTodoEditBtn.onclick = function() {
-            const newTodoTitleEdit = document.createElement("input")
+            
+            newTodoTitleEdit.className = "temp-submit"
             newTodoTitleEdit.value = newTodoTitle.innerHTML
             newTodoTitle.parentNode.replaceChild(newTodoTitleEdit, newTodoTitle)
 
-            console.log(prioText)
-
-            const newTodoPrioEdit = document.createElement("input")
+            
+            newTodoPrioEdit.className = "temp-submit"
             newTodoPrioEdit.value = prio.innerHTML
             prio.parentNode.replaceChild(newTodoPrioEdit, prio)
 
-            const newTodoDateEdit = document.createElement("input")
+            
+            newTodoDateEdit.className = "temp-submit"
             newTodoDateEdit.value = date.innerHTML
             date.parentNode.replaceChild(newTodoDateEdit, date)
             // saveStorage(list.title)
         }
+        
         newTodo.append(newTodoBtn)
         newTodo.append(newTodoEditBtn)
+
+        newTodoBtn.onclick = function() {
+            index.title = newTodoTitleEdit.value
+            while (display.firstChild) {
+                display.removeChild(display.lastChild)
+            }
+            displayController.refreshTodos(currentList)
+            saveStorage(list.title)
+        }
 
         let detailsContainer = document.createElement("div")
         
@@ -184,7 +198,6 @@ class DisplayController {
         for(let i = 0; i < list.todos.length; i++) {
             this.createTodo(list, i)
         }
-
     }
 }
 
