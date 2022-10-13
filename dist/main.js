@@ -86,6 +86,8 @@ class DisplayController {
         const newTodoTitleEdit = document.createElement("input")
         const newTodoPrioEdit = document.createElement("input")
         newTodoPrioEdit.setAttribute("type", "number")
+        newTodoPrioEdit.setAttribute("min", 1)
+        newTodoPrioEdit.setAttribute("max", 5)
         const newTodoDateEdit = document.createElement("input")
         newTodoDateEdit.setAttribute("type", "date")
         newTodoEditBtn.onclick = function() {
