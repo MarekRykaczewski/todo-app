@@ -109,6 +109,8 @@ class DisplayController {
 
         newTodoBtn.onclick = function() {
             index.title = newTodoTitleEdit.value
+            index.priority = newTodoPrioEdit.value
+            index.dueDate = newTodoDateEdit.value
             while (display.firstChild) {
                 display.removeChild(display.lastChild)
             }
